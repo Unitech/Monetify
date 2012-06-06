@@ -1,8 +1,11 @@
 Monetify::Application.routes.draw do
-  get "home/index"
 
-  get "home/about"
+  scope :controller => 'home', :as => :home do 
+    get '/about' => :about, :as => :about
+  end
 
+  root :to => 'home#index'
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
